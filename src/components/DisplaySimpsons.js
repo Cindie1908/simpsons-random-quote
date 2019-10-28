@@ -8,8 +8,8 @@ function DisplaySimpsons({exSimpson}) {
         alt={exSimpson[0] && exSimpson[0].character}
       />
       <ul>
-        <li>{exSimpson[0] && exSimpson[0].character}</li>
-        <li>{exSimpson[0] && exSimpson[0].quote}</li>
+        <li style={{listStyle:"none"}}>{exSimpson[0] && exSimpson[0].character}</li>
+        <li style={{listStyle:"none"}}>{exSimpson[0] && exSimpson[0].quote}</li>
       </ul>
     </div>
   );

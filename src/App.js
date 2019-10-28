@@ -16,9 +16,10 @@ class App extends React.Component{
     this.state={
       exSimpson:[]
     }
-    this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentDidMount = this.GetNewQuote();
+    this.GetNewQuote=this.GetNewQuote.bind(this)
   }
-  componentDidMount() {
+  GetNewQuote() {
     // Send the request
     fetch('https://quests.wilders.dev/simpsons-quotes/quotes')
       // Extract the DATA from the received response
@@ -32,11 +33,15 @@ class App extends React.Component{
     });
   }
   render(){
-    const {exSimpson} = this.state
     return (
       <div className="App">
-        <DisplaySimpsons exSimpson={exSimpson} />
-        <button type="button" onClick={this.componentDidMount}>Get new quote</button>
+        {
+          this.state.exSimpson
+            ? <DisplaySimpsons exSimpson={this.state.exSimpson} />
+            :<p>In Progress</p>
+        }
+        
+        <button type="button" onClick={this.GetNewQuote}>Get new quote</button>
       </div>
     );
   }
